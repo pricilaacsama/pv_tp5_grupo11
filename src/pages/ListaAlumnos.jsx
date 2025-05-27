@@ -1,7 +1,7 @@
 import {Container,Button,Row,Col,Card,} from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-//falta botone de editar;
+
 
 function ListaAlumnos({ alumnos, eliminarAlumno }) {
     const activos = alumnos.filter((a) => a.estado);
@@ -24,6 +24,7 @@ function ListaAlumnos({ alumnos, eliminarAlumno }) {
                   </Card.Title>
                   <div className="d-flex justify-content-between">
                     <Button variant="danger" onClick={() => eliminarAlumno(alumno.id)}>Eliminar</Button>
+                    <Button variant="success" as={Link} to={`/editar/${alumno.id}`}>Modificar</Button>
                     <Button as={Link} to={`/alumnos/${alumno.id}`} variant="primary">Ver Detalles</Button>
                   </div>
                   

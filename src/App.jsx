@@ -6,7 +6,7 @@ import NuevoAlumno from "./pages/NuevoAlumno";
 import ListaAlumnos from "./pages/ListaAlumnos";
 import Acerca from "./pages/Acerca";
 import DetalleAlumnos from "./pages/DetalleAlumnos";
-//import EditarAlumno from "./pages/EditarAlumno";
+import EditarAlumno from "./pages/EditarAlumno";
 
 
 function App() {
@@ -39,6 +39,7 @@ function App() {
         />
         <Route path="/acerca" element={<Acerca />} />
         <Route path="/alumnos/:id" element={<DetalleAlumnos alumnos={alumnos} />} />
+        <Route path="/editar/:id" element={<EditarAlumno alumnos={alumnos} onModificar={setAlumnos}/>}></Route>
         
       </Routes>
     </>
