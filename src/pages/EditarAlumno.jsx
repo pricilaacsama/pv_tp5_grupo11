@@ -1,10 +1,11 @@
 import {Container,Button,Row,Col,Form,} from "react-bootstrap";
 import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 function EditarAlumno ({ alumnos,onModificar }) {
     
     const {id} = useParams();
+    const navegador = useNavigate();
     const alumno = alumnos.find((a) => a.id.toString() === id);
 
     if (!alumno) {
@@ -50,7 +51,7 @@ function EditarAlumno ({ alumnos,onModificar }) {
             return a;
     }))
 
-        console.log("Guardar")
+        navegador("/lista");
     }
 
     return (
