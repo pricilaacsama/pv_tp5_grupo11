@@ -155,7 +155,7 @@ function EditarAlumno ({ alumnos,onModificar }) {
         </Row>
 
         <Button variant="primary" type="submit">
-          Agregar Alumno
+          Guardar Cambios
         </Button>
       </Form>
 
