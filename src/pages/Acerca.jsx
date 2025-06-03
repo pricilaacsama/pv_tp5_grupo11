@@ -1,47 +1,57 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import Carousel from 'react-bootstrap/Carousel';
+
+// Importá las imágenes desde la carpeta src/components/img
+import img1 from '../components/img/img1.jpg';
+import img2 from '../components/img/img2.jpg';
+import img3 from '../components/img/img3.jpg';
+const integrantes = [
+  {
+    nombre: 'Juan Lamas',
+    descripcion: 'Líder del grupo.',
+    foto: img3,
+  },
+  {
+    nombre: 'Priscila Acsama',
+    descripcion: 'Organizador de Proyectos.',
+    foto: img1,
+  },
+  {
+    nombre: 'Delia Maribbel Cusipuma',
+    descripcion: 'Dar formato al Proyecto.',
+    foto: img2,
+  },
+];
 
 function Acerca() {
-  const integrantes = [
-    {
-      nombre: 'Juan Lamas',
-      descripcion: 'Estudiante.',
-      foto: 'https://i.imgur.com/0y8Ftya.jpg', // Reemplazar por imagen real si se desea
-    },
-    {
-      nombre: 'Priscila',
-      descripcion: 'estudiante.',
-      foto: 'https://i.imgur.com/0y8Ftya.jpg',
-    },
-    {
-      nombre: 'Delia Cusipuma',
-      descripcion: 'Estudiante.',
-      foto: 'https://i.imgur.com/0y8Ftya.jpg',
-    },
-  ];
-
   return (
-    <Container className="mt-4">
-      <h2 className="text-center mb-4">Acerca del Grupo 11</h2>
-      <p className="text-center">Este proyecto fue realizado por el Grupo 11, conformado por:</p>
-      <Row>
+    <>
+      <h2 className="text-center mt-4">Acerca del Grupo 11</h2>
+      <p className="text-center mb-4">Este proyecto fue realizado por el Grupo 11, conformado por:</p>
+      <Carousel>
         {integrantes.map((persona, index) => (
-          <Col md={4} key={index} className="mb-4">
-            <Card className="h-100 text-center">
-              <Card.Img variant="top" src={persona.foto} alt={persona.nombre} />
-              <Card.Body>
-                <Card.Title>{persona.nombre}</Card.Title>
-                <Card.Text>{persona.descripcion}</Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
+          <Carousel.Item key={index} interval={1500}>
+            <div className="d-flex justify-content-center">
+              <img
+                className="d-block"
+                src={persona.foto}
+                alt={persona.nombre}
+                style={{
+                  width: '500px',
+                  height: '500px',
+                  objectFit: 'cover',
+                  marginBottom: '1rem',
+                }}
+              />
+            </div>
+            <Carousel.Caption>
+              <h3>{persona.nombre}</h3>
+              <p>{persona.descripcion}</p>
+            </Carousel.Caption>
+          </Carousel.Item>
         ))}
-      </Row>
-    </Container>
+      </Carousel>
+    </>
   );
 }
 
