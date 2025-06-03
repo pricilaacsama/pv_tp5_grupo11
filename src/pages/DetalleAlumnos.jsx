@@ -1,4 +1,3 @@
-import React from "react";
 import { useParams } from "react-router-dom";
 import { Container, Card, ListGroup, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
@@ -21,37 +20,40 @@ function DetalleAlumnos({ alumnos }) {
   }
 
   return (
-    <Container className="my-4">
-      <Card>
-        <Card.Header>
-          <h2>Detalle del Alumno</h2>
+    <Container className="my-5">
+      <Card className="shadow-lg rounded-4 border-0">
+        <Card.Header className="bg-info text-white text-center rounded-top-4">
+          <h2 className="mb-0">👩‍🎓 Detalle del Alumno</h2>
         </Card.Header>
-        <ListGroup variant="flush">
+
+        <ListGroup variant="flush" className="fs-5">
           <ListGroup.Item>
-            <strong>Nombre:</strong> {alumno.nombre} {alumno.apellido}
+            🧑‍🏫 <strong>Nombre y Apellido:</strong> {alumno.nombre} {alumno.apellido}
           </ListGroup.Item>
           <ListGroup.Item>
-            <strong>Curso:</strong> {alumno.curso}
+            📘 <strong>Curso:</strong> {alumno.curso}
           </ListGroup.Item>
           <ListGroup.Item>
-            <strong>LU:</strong> {alumno.lu}
+            🆔 <strong>LU:</strong> {alumno.lu}
           </ListGroup.Item>
           <ListGroup.Item>
-            <strong>Email:</strong> {alumno.email}
+            📧 <strong>Email:</strong> {alumno.email}
           </ListGroup.Item>
           <ListGroup.Item>
-            <strong>Domicilio:</strong> {alumno.domicilio}
+            🏠 <strong>Domicilio:</strong> {alumno.domicilio}
           </ListGroup.Item>
           <ListGroup.Item>
-            <strong>Teléfono:</strong> {alumno.telefono}
+            📞 <strong>Teléfono:</strong> {alumno.telefono}
           </ListGroup.Item>
           <ListGroup.Item>
-            <strong>Estado:</strong> {alumno.estado ? "Activo" : "Inactivo"}
+            🔄 <strong>Estado:</strong>{" "}
+            {alumno.estado ? "✅ Activo" : "❌ Inactivo"}
           </ListGroup.Item>
         </ListGroup>
-        <Card.Footer>
-          <Button variant="secondary" onClick={() => navigate("/lista")}>
-            Volver a la lista
+
+        <Card.Footer className="text-center bg-light rounded-bottom-4">
+          <Button variant="outline-secondary" onClick={() => navigate("/lista")}>
+            🔙 Volver a la lista
           </Button>
         </Card.Footer>
       </Card>

@@ -1,6 +1,6 @@
 import {Container,Button,Row,Col,Card,} from "react-bootstrap";
 import { Link } from "react-router-dom";
-
+import "../App.css";
 
 
 function ListaAlumnos({ alumnos, eliminarAlumno }) {
@@ -9,25 +9,33 @@ function ListaAlumnos({ alumnos, eliminarAlumno }) {
 
 
   return (
-    <Container className="my-4">
-      <h2 className="text-center mb-4">Lista de Alumnos</h2>
+    <Container className="my-5">
+      <h2 className="text-center mb-4 display-6 fw-bold text-dark">
+        👩‍🎓 Lista de Alumnos 👨‍🎓
+      </h2>
+
       {activos.length === 0 ? (
-        <p className="text-center">No hay alumnos aún.</p>
+        <p className="text-center fs-5 text-muted">No hay alumnos aún.</p>
       ) : (
         <Row>
-          {activos.map((alumno, index) => (
-            <Col key={alumno.id} md={4} className="mb-4">
-              <Card>
+          {activos.map((alumno) => (
+            <Col key={alumno.id} md={6} lg={4} className="mb-4">
+              <Card className="shadow-sm border-0 card-hover h-100">
                 <Card.Body>
-                  <Card.Title>
-                    {alumno.nombre} {alumno.apellido}
+                  <Card.Title className="fs-5 fw-semibold text-dark mb-3 text-center">
+                    📘 {alumno.nombre} {alumno.apellido}
                   </Card.Title>
-                  <div className="d-flex justify-content-between">
-                    <Button variant="danger" onClick={() => eliminarAlumno(alumno.id)}>Eliminar</Button>
-                    <Button variant="success" as={Link} to={`/editar/${alumno.id}`}>Modificar</Button>
-                    <Button as={Link} to={`/alumnos/${alumno.id}`} variant="primary">Ver Detalles</Button>
+                  <div className="d-flex flex-wrap gap-2 justify-content-center">
+                    <Button variant="outline-danger" size="sm" onClick={() => eliminarAlumno(alumno.id)}>
+                      Eliminar
+                    </Button>
+                    <Button variant="outline-success" size="sm" as={Link} to={`/editar/${alumno.id}`}>
+                      Modificar
+                    </Button>
+                    <Button variant="outline-primary" size="sm" as={Link} to={`/alumnos/${alumno.id}`}>
+                      Detalles
+                    </Button>
                   </div>
-                  
                 </Card.Body>
               </Card>
             </Col>
