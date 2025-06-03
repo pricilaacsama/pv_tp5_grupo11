@@ -5,15 +5,27 @@ import Navbar from 'react-bootstrap/Navbar';
 
 function NavBar() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="custom-navbar" variant="dark">
       <Container>
-         <Nav.Link as={Link} to="/">Inicio</Nav.Link>
+        <Navbar.Brand as={Link} to="/" className="custom-brand">
+          🧑‍💻 Programacion Visual
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link as={Link} to="/lista">Lista de alumnos</Nav.Link>
-            <Nav.Link as={Link} to="/nuevo">Nuevo alumno</Nav.Link>
-            <Nav.Link as={Link} to="/acerca">Grupo 11</Nav.Link>
+          <Nav className="ms-auto custom-nav-links">
+            <Nav.Link as={Link} to="/" className="nav-link-emoji">
+              🏠 Inicio
+            </Nav.Link>
+            <Nav.Link as={Link} to="/lista" className="nav-link-emoji">
+              📋 Lista de alumnos
+            </Nav.Link>
+            <Nav.Link as={Link} to="/nuevo" className="nav-link-emoji">
+              ➕ Nuevo alumno
+            </Nav.Link>
+            <Nav.Link as={Link} to="/acerca" className="nav-link-emoji">
+              👨‍👩‍👧‍👦 Acerca del grupo
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -1,6 +1,7 @@
-import {Container,Button,Row,Col,Form,} from "react-bootstrap";
+import {Container,Button,Row,Col,Form,Card,Stack} from "react-bootstrap";
 import { useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import "../App.css";
 
 function EditarAlumno ({ alumnos,onModificar }) {
     
@@ -55,114 +56,105 @@ function EditarAlumno ({ alumnos,onModificar }) {
     }
 
     return (
-       <Container className="my-4">
-      <h2 className="mb-4">Modificar Datos del Alumno</h2>
-      <Form onSubmit={guardarCambios}>
-        <Row>
-          <Col md={6}>
-            <Form.Group className="mb-3">
-              <Form.Label>Apellido</Form.Label>
-              <Form.Control
-                type="text"
-                value={apellido}
-                onChange={(e) =>setApellido(e.target.value)}
-                placeholder="Apellido"
-                required
-              />
-            </Form.Group>
-          </Col>
+       <Container className="my-5 d-flex justify-content-center">
+      <Card className="p-4 shadow-lg border-0 rounded-4 form-editar" style={{ maxWidth: "700px", width: "100%" }}>
+        <Card.Body>
+          <h2 className="text-center text-dark mb-4"> ✏️Editar Alumno</h2>
 
-          <Col md={6}>
-            <Form.Group className="mb-3">
-              <Form.Label>Nombre</Form.Label>
-              <Form.Control
-                type="text"
-                value={nombre}
-                onChange={(e) => setNombre(e.target.value)}
-                placeholder="Nombre"
-                required
-              />
-            </Form.Group>
-          </Col>
-        </Row>
+          <Form onSubmit={guardarCambios}>
+            <Row className="mb-3">
+              <Col md={6}>
+                <Form.Label>👤 <strong>Apellido</strong></Form.Label>
+                <Form.Control
+                  type="text"
+                  value={apellido}
+                  onChange={(e) => setApellido(e.target.value)}
+                  placeholder="Ingrese su apellido..."
+                  required
+                />
+              </Col>
+              <Col md={6}>
+                <Form.Label>👤 <strong>Nombre</strong></Form.Label>
+                <Form.Control
+                  type="text"
+                  value={nombre}
+                  onChange={(e) => setNombre(e.target.value)}
+                  placeholder="Ingrese su nombre..."
+                  required
+                />
+              </Col>
+            </Row>
 
-        <Row>
-          <Col md={6}>
-            <Form.Group className="mb-3">
-              <Form.Label>LU</Form.Label>
-              <Form.Control
-                type="text"
-                value={lu}
-                onChange={(e) => setLu(e.target.value)}
-                placeholder="Legajo Único"
-                required
-              />
-            </Form.Group>
-          </Col>
-          <Col md={6}>
-            <Form.Group className="mb-3">
-              <Form.Label>Curso</Form.Label>
-              <Form.Control
-                type="text"
-                value={curso}
-                onChange={(e) => setCurso(e.target.value)}
-                placeholder="Curso"
-                required
-              />
-            </Form.Group>
-          </Col>
-        </Row>
+            <Row className="mb-3">
+              <Col md={6}>
+                <Form.Label>🆔 <strong>LU</strong></Form.Label>
+                <Form.Control
+                  type="text"
+                  value={lu}
+                  onChange={(e) => setLu(e.target.value)}
+                  placeholder="Ingrese su LU..."
+                  required
+                />
+              </Col>
+              <Col md={6}>
+                <Form.Label>📚 <strong>Curso</strong></Form.Label>
+                <Form.Control
+                  type="text"
+                  value={curso}
+                  onChange={(e) => setCurso(e.target.value)}
+                  placeholder="Ingrese su curso..."
+                  required
+                />
+              </Col>
+            </Row>
 
-        <Row>
-          <Col md={6}>
-            <Form.Group className="mb-3">
-              <Form.Label>Email</Form.Label>
-              <Form.Control
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Email"
-                required
-              />
-            </Form.Group>
-          </Col>
-          <Col md={6}>
-            <Form.Group className="mb-3">
-              <Form.Label>Domicilio</Form.Label>
-              <Form.Control
-                type="text"
-                value={domicilio}
-                onChange={(e) => setDomicilio(e.target.value)}
-                placeholder="Domicilio"
-                required
-              />
-            </Form.Group>
-          </Col>
-        </Row>
+            <Row className="mb-3">
+              <Col md={6}>
+                <Form.Label>📧 <strong>Email</strong></Form.Label>
+                <Form.Control
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Ingrese su email..."
+                  required
+                />
+              </Col>
+              <Col md={6}>
+                <Form.Label>🏠 <strong>Domicilio</strong></Form.Label>
+                <Form.Control
+                  type="text"
+                  value={domicilio}
+                  onChange={(e) => setDomicilio(e.target.value)}
+                  placeholder="Ingrese su domicilio..."
+                  required
+                />
+              </Col>
+            </Row>
 
-        <Row>
-          <Col md={6}>
-            <Form.Group className="mb-3">
-              <Form.Label>Teléfono</Form.Label>
-              <Form.Control
-                type="tel"
-                value={telefono}
-                onChange={(e) => setTelefono(e.target.value)}
-                placeholder="Teléfono"
-                required
-              />
-            </Form.Group>
-          </Col>
-        </Row>
+            <Row className="mb-4">
+              <Col md={6}>
+                <Form.Label>📞 <strong>Telefono</strong></Form.Label>
+                <Form.Control
+                  type="tel"
+                  value={telefono}
+                  onChange={(e) => setTelefono(e.target.value)}
+                  placeholder="Ingrese su teléfono..."
+                  required
+                />
+              </Col>
+            </Row>
 
-        <Button variant="primary" type="submit">
-          Guardar Cambios
-        </Button>
-      </Form>
-
-    
+            <div className="text-center">
+              <Button type="submit" size="lg" variant="warning" className="px-4 w-100 w-md-auto">
+                💾<strong>Guardar Cambios</strong> 
+              </Button>
+            
+            </div>
+          </Form>
+        </Card.Body>
+      </Card>
     </Container>
-    )
+    );
 }
 
 export default EditarAlumno

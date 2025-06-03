@@ -1,4 +1,9 @@
-#TP5 - GRUPO11
+# TP4 - PROGRAMACION VISUAL
+# GRUPO11
+# INTEGRANTES:
+* Juan Eduardo Lamas - usuario de Github: juanjujuy
+* Pricila Acsama - usuario de Github: pricilaacsama
+* Delia Maribel Cusipuma - usuario de Github: Delia150
 
 # React + Vite
 
