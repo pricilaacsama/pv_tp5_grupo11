@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "../App.css";
 
+import validarAlumno from "../components/validarAlumno";
+
 function EditarAlumno ({ alumnos,onModificar }) {
     
     const {id} = useParams();
@@ -43,8 +45,10 @@ function EditarAlumno ({ alumnos,onModificar }) {
         telefono,
         estado,
     };
-
+    const validacion = validarAlumno(alumnoModificado,alumnos);
+        if(validacion[0]){
     onModificar(alumnos.map(a=> {
+
         if(a.id==alumnoModificado.id){
             console.log(a.id)
             return {...a, ...alumnoModificado};
@@ -53,6 +57,11 @@ function EditarAlumno ({ alumnos,onModificar }) {
     }))
 
         navegador("/lista");
+  }
+    else{
+      alert(validacion[1])
+      console.log(validacion[1])
+    }
     }
 
     return (
