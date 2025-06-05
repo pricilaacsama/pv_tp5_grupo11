@@ -1,7 +1,6 @@
-import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 
-// Importá las imágenes desde la carpeta src/components/img
+
 import img1 from '../components/img/img1.jpg';
 import img2 from '../components/img/img2.jpg';
 import img3 from '../components/img/img3.jpg';

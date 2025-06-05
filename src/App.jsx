@@ -47,26 +47,3 @@ function App() {
 }
 
 export default App;
-
-/*import { Routes, Route } from "react-router-dom";
-import NavBar from "./components/NavBar";
-import Home from "./pages/Home";
-import ListaAlumnos from "./pages/ListaAlumnos";
-import NuevoAlumno from "./pages/NuevoAlumno"; // si tenés este
-import Acerca from "./pages/Acerca"; // si ya creaste esta
-
-function App() {
-  return (
-    <>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/lista" element={<ListaAlumnos />} />
-        <Route path="/nuevo" element={<NuevoAlumno />} />
-        <Route path="/acerca" element={<Acerca />} />
-      </Routes>
-    </>
-  );
-}
-
-export default App;*/
