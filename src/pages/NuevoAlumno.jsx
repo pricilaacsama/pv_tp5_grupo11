@@ -10,6 +10,7 @@ import {
 } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
+import validarAlumno from "../components/validarAlumno";
 
 function NuevoAlumno({ alumnos, setAlumnos }) {
   const [nombre, setNombre] = useState("");
@@ -19,6 +20,7 @@ function NuevoAlumno({ alumnos, setAlumnos }) {
   const [domicilio, setDomicilio] = useState("");
   const [telefono, setTelefono] = useState("");
   const [lu, setLu] = useState("");
+  const [valido,setValido] = useState([]);
 
   const navigate = useNavigate();
 
@@ -36,6 +38,8 @@ function NuevoAlumno({ alumnos, setAlumnos }) {
       telefono,
       estado: true,
     };
+    const validacion = validarAlumno(nuevoAlumno,alumnos);
+    if(validacion[0]){
     setAlumnos([...alumnos, nuevoAlumno]);
 
       navigate("/lista");
@@ -48,6 +52,11 @@ function NuevoAlumno({ alumnos, setAlumnos }) {
     setEmail("");
     setDomicilio("");
     setTelefono("");
+    }
+    else{
+      alert(validacion[1])
+      console.log(validacion[1])
+    }
   };
 
   return (
@@ -95,7 +104,7 @@ function NuevoAlumno({ alumnos, setAlumnos }) {
                   type="text"
                   value={lu}
                   onChange={(e) => setLu(e.target.value)}
-                  placeholder="Ingrese su LU..."
+                  placeholder="Ingrese su LU... Ej: 1234"
                   className="rounded-input"
                   required
                 />
@@ -125,7 +134,7 @@ function NuevoAlumno({ alumnos, setAlumnos }) {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Ingres su correo... Ej: ejemplo@correo.com"
+                  placeholder="Ingrese su correo... Ej: ejemplo@correo.com"
                   className="rounded-input"
                   required
                 />
@@ -155,7 +164,7 @@ function NuevoAlumno({ alumnos, setAlumnos }) {
                   type="tel"
                   value={telefono}
                   onChange={(e) => setTelefono(e.target.value)}
-                  placeholder="Ingrese su numero de telefono"
+                  placeholder="Ingrese su numero de telefono (10 digitos)"
                   className="rounded-input"
                   required
                 />

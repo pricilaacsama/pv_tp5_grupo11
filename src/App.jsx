@@ -11,8 +11,8 @@ import EditarAlumno from "./pages/EditarAlumno";
 
 function App() {
   const [alumnos, setAlumnos] = useState([
-    { id: 1, nombre: "Juan", apellido: "Pérez", curso: "Matemática", lu: "0001", email: "juan@mail.com", domicilio: "Calle 1", telefono: "123456", estado: true },
-    { id: 2, nombre: "Ana", apellido: "Gómez", curso: "Historia", lu: "0005", email: "ana@mail.com", domicilio: "Calle 2", telefono: "654321", estado: true },
+    { id: 1, nombre: "Juan", apellido: "Pérez", curso: "Matemática", lu: "0001", email: "juan@mail.com", domicilio: "Calle 1", telefono: "3884123456", estado: true },
+    { id: 2, nombre: "Ana", apellido: "Gómez", curso: "Historia", lu: "0005", email: "ana@mail.com", domicilio: "Calle 2", telefono: "3885654321", estado: true },
   ]); 
 
   const eliminarAlumno = (id) => {
