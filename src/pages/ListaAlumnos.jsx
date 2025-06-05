@@ -39,31 +39,3 @@ function ListaAlumnos({ alumnos, eliminarAlumno }) {
 }
 
 export default ListaAlumnos;
-
-
-
-/*function ListaAlumnos({ alumnos }) {
-  return (
-    <div>
-      <h2>Lista de Alumnos</h2>
-      {alumnos.length === 0 ? (
-        <p>No hay alumnos aún.</p>
-      ) : (
-        <ul>
-          {alumnos.map((alumno, i) => (
-            <li key={i}>
-              <strong>{alumno.nombre} {alumno.apellido}</strong><br />
-              <span>Curso: {alumno.curso}</span><br />
-              <span>Email: {alumno.email}</span><br />
-              <span>Domicilio: {alumno.domicilio}</span><br />
-              <span>Teléfono: {alumno.telefono}</span><br />
-              <hr />
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
-  );
-}
-
-export default ListaAlumnos;*/
